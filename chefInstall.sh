@@ -2,6 +2,9 @@
 
 echo BEGIN
 sudo apt-get update
+
+sudo echo $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) | xargs sudo hostname
+
 sudo apt-get install -y wget
 wget https://packages.chef.io/files/stable/chef-server/12.16.2/ubuntu/16.04/chef-server-core_12.16.2-1_amd64.deb
 sudo dpkg -i chef-server*
